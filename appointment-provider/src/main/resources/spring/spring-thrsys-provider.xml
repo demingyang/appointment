@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						 http://code.alibabatech.com/schema/dubbo  
+						  http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <!--<dubbo:application name="${dubbo.application.name}"/>-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 即zookeeper的所在服务器ip地址和端口号 -->
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false"/>
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <!--<dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>-->
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysPostService" class="com.richgo.thrsys.service.post.impl.ThrsysPostServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.post.ThrsysPostService" ref="thrsysPostService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysPostJobService" class="com.richgo.thrsys.service.post.job.impl.ThrsysPostJobServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.post.job.ThrsysPostJobService" ref="thrsysPostJobService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="customerServiceImpl" class="com.service.customer.impl.CustomerServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.customer.ICustomerService" ref="customerServiceImpl"
+                   version="1.0.0"/>
+
+    <bean id="thrsysReserveService" class="com.richgo.thrsys.service.reserve.impl.ThrsysReserveServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.reserve.ThrsysReserveService" ref="thrsysReserveService"
+                   version="1.0.0"/>
+
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysempService" class="com.richgo.thrsys.service.emp.impl.ThrsysEmpServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.emp.ThrsysEmpService" ref="thrsysempService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysProductInfoService" class="com.richgo.thrsys.service.product.impl.ThrsysProductInfoServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.product.ThrsysProductInfoService" ref="thrsysProductInfoService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysPointCustomerService" class="com.service.customer.impl.PointCustomerServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.customer.IPointsCustomerService"
+                   ref="thrsysPointCustomerService" version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysProductStatusService"
+          class="com.richgo.thrsys.service.product.impl.ThrsysProductStatusServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.product.ThrsysProductStatusService"
+                   ref="thrsysProductStatusService" version="1.0.0"/>
+
+    <bean id="customerEmpService" class="com.service.customer.impl.CustomerEmpServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.customer.CustomerEmpService" ref="customerEmpService"
+                   version="1.0.0"/>
+
+    <!-- 客户消息服务(客户注册,合格投资者审核状态,客户实名认证) -->
+    <bean id="customerMessageService" class="com.service.customer.impl.CustomerMessageServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.customer.CustomerMessageService" ref="customerMessageService"
+                   version="1.0.0"/>
+
+    <!--多金基金交易-->
+    <bean id="thrsysFundServiceImpl" class="com.richgo.thrsys.service.fund.impl.ThrsysFundServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.fund.ThrsysFundService" ref="thrsysFundServiceImpl"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysIncrementService" class="com.richgo.thrsys.service.emp.impl.ThrsysIncrementServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.emp.ThrsysIncrementService" ref="thrsysIncrementService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysOrgService" class="com.richgo.thrsys.service.org.impl.ThrsysOrgServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.org.ThrsysOrgService" ref="thrsysOrgService"
+                   version="1.0.0"/>
+
+
+    <!-- 具体的实现bean -->
+    <bean id="thrsysSaleProjectService" class="com.richgo.thrsys.service.reserve.impl.ThrsysSaleProjectServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.reserve.ThrsysSaleProjectService" ref="thrsysSaleProjectService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="toolService" class="com.richgo.thrsys.service.reserve.impl.ToolServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.reserve.ToolService" ref="toolService" version="1.0.0"/>
+
+
+    <!-- 具体的实现bean -->
+    <bean id="investorService" class="com.service.customer.impl.InvestorServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.customer.IInvestorService" ref="investorService"
+                   version="1.0.0"/>
+
+    <!-- 具体的实现bean -->
+    <bean id="iBankCardOperationService" class="com.service.customer.impl.BankCardOperationServiceImpl"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.customer.IBankCardOperationService"
+                   ref="iBankCardOperationService" version="1.0.0"/>
+
+    <!-- 视频见证预约三方接口服务 -->
+    <bean id="appointmentService" class="com.appointment.service.impl.AppointmentServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.appointment.service.AppointmentService" ref="appointmentService"
+                   version="1.0.0"/>
+
+    <!-- 视频见证预约多金数据存储服务 -->
+    <bean id="appointmentDBService" class="com.appointment.service.customer.impl.AppointmentDBServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.customer.AppointmentDBService" ref="appointmentDBService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!-- 客户资产份额 -->
+    <bean id="thrsysAssetStockService" class="com.service.customer.impl.ThrsysAssetStockServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.customer.ThrsysAssetStockService" ref="thrsysAssetStockService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!-- 客户合同 -->
+    <bean id="iCustomerContractService" class="com.service.customer.impl.CustomerContractServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.customer.ICustomerContractService"
+                   ref="iCustomerContractService" version="1.0.0" timeout="10000"/>
+
+    <!-- 活动 -->
+    <bean id="activityService" class="com.richgo.thrsys.service.activity.impl.ActivityServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.activity.ActivityService" ref="activityService"
+                   version="1.0.0" timeout="10000"/>
+    <bean id="thrsysEmpService" class="com.richgo.thrsys.service.emp.impl.ThrsysEmpServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.emp.ThrsysEmpService" ref="thrsysEmpService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!--客户资料修改审核-->
+    <bean id="editInformationService" class="com.richgo.thrsys.service.fundcrm.impl.EditInformationServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.fundcrm.EditInformationService" ref="editInformationService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!-- 用户、公司注册审核 -->
+    <bean id="thrsysFundcrmService" class="com.richgo.thrsys.service.fundcrm.impl.ThrsysFundcrmServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.fundcrm.ThrsysFundcrmService" ref="thrsysFundcrmService"
+                   retries="0" version="1.0.0" timeout="35000"/>
+
+
+    <!--统计-->
+    <bean id="thsysStatisticsService" class="com.richgo.thrsys.service.statistics.ThsysStatisticsServiceImpl"/>
+    <dubbo:service interface="com.richgo.thrsys.service.statistics.ThsysStatisticsService" ref="thsysStatisticsService"
+                   version="1.0.0" timeout="10000"/>
+	<!-- 电子合同查询项目列表 -->
+	<bean id="tElectronicContractService" class="com.richgo.thrsys.service.contract.impl.TElectronicContractServiceImpl" />
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service interface="com.richgo.thrsys.service.contract.TElectronicContractService" ref="tElectronicContractService" version="1.0.0" timeout="300000"/>
+
+    <!-- 呼叫中心回访记录查询项目列表 刘鑫宇添加-->
+    <bean id="callCenterReportService" class="com.richgo.thrsys.service.report.impl.CallCenterReportServiceImpl" />
+    <dubbo:service interface="com.richgo.thrsys.service.report.CallCenterReportService" ref="callCenterReportService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!-- 发送短信  刘鑫宇添加-->
+    <bean id="messageService" class="com.richgo.thrsys.service.message.impl.MessageServiceImpl" />
+    <dubbo:service interface="com.richgo.thrsys.service.message.MessageService" ref="messageService"
+                   version="1.0.0" timeout="10000"/>
+
+    <!-- 补偿合同时间  刘鑫宇添加-->
+    <bean id="contractService" class="com.richgo.thrsys.service.contract.impl.ContractServiceImpl" />
+    <dubbo:service interface="com.richgo.thrsys.service.contract.ContractService" ref="contractService"
+                   version="1.0.0" timeout="10000"/>
+    <!-- 纸质合同查询项目列表 -->
+    <bean id="tPaperContractService" class="com.richgo.thrsys.service.contract.impl.TPaperContractServiceImpl" />
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.richgo.thrsys.service.contract.TPaperContractService" ref="tPaperContractService" version="1.0.0" timeout="300000"/>
+</beans>

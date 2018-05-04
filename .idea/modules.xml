@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/appointment-api/appointment-api.iml" filepath="$PROJECT_DIR$/appointment-api/appointment-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appointment-parent.iml" filepath="$PROJECT_DIR$/appointment-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appointment-provider/appointment-provider.iml" filepath="$PROJECT_DIR$/appointment-provider/appointment-provider.iml" />
+    </modules>
+  </component>
+</project>
