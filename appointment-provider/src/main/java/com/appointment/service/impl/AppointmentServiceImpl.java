@@ -1,8 +1,8 @@
 package com.appointment.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.richgo.thrsys.appointment.manager.CommunicationManager;
-import com.richgo.thrsys.appointment.service.AppointmentService;
+import com.appointment.manager.CommunicationManager;
+import com.appointment.service.AppointmentService;
 import com.richgo.util.ConfigUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
